@@ -49,11 +49,3 @@ To get all the info related to a customer:
 POST > https://comp2411.tsytang.pro/api/customer/getInfo/  
 Data required: token  
 Output: restaurants => All the info about the customer  
-
-If you want more information, please refer to the comment I've written in the respective source code.  
-Please look up how to send POST/GET requests on Google if you don't know already, it is easy  
-
-If anyone would like to write documentation for me in gitlab (or make this a markdown), it would be much appreciated.  
-
-I'll be working on the update / delete features of the said information, new information might be added to the database when we implement new features.  
-Try reading the source code to see if it makes sense, if you can help me implement some features I'd be very happy :D  
