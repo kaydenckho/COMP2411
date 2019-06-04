@@ -1,0 +1,34 @@
+stages:
+  - test
+  - deploy
+  - production
+
+test:
+  image: php:7.0
+  stage: test
+  script:
+    - find . -name "*.php" -type f -exec php -l {} \;
+
+pages:
+  stage: deploy
+  script:
+    - mkdir .public
+    - cp -r ./* .public
+    - mv .public public
+  artifacts:
+    paths:
+    - public
+  only:
+    - master
+
+server:
+  stage: production
+  environment: production
+  script:
+    - 'apt-get update -y && apt-get install openssh-client sshpass -y'
+    - sshpass -V
+    - export SSHPASS=$USER_PASS
+    - sshpass -e ssh -o stricthostkeychecking=no comp2411@tsytang.pro "cd /var/www/comp2411/html && git pull && chmod 775 restaurant/uploads"
+  only:
+    - master
+    

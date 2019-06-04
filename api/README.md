@@ -48,4 +48,4 @@ Output: restaurants => All the restaurant info
 To get all the info related to a customer:  
 POST > https://comp2411.tsytang.pro/api/customer/getInfo/  
 Data required: token  
-Output: restaurants => All the info about the customer  
+Output: restaurants => All the info about the customer
